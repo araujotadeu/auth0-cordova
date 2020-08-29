@@ -12,7 +12,10 @@ function WebView() {
 
 WebView.prototype.open = function (url, handler) {
   var browser = window.cordova.InAppBrowser;
-  var tab = browser.open(url, '_blank');
+  var tab = browser.open(url, '_blank',{
+    location: "no",
+    toolbar: "no"
+  });
 
   tab.addEventListener('loadstop', this.handleFirstLoadEnd);
   tab.addEventListener('loaderror', this.handleLoadError);
